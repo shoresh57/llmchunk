@@ -1,0 +1,10 @@
+- create compute instance in azureml
+- open terminal in compute instance
+- inside environment.yml file I created neccessary packages so :
+- conda env create -f environment.yml
+- conda activate llm-rag-embeddings
+- python -m ipykernel install --user --name newenv --display-name "llm-rag-embeddings"
+- now from compute instance open jupyter notebook and select kernel llm-rag-embeddings 
+- then run the code crack_pdfs_with_azure_document_intelligence-justina.ipynb
+- the notebook create pipeline with custome component and even curated component ,then it deploy as batch endpoint and test the endpoint with input data
+- keep in mind this custome componenet everytime chunk the whole data, but for embedding look at he container and if it was there then dont embed again . this is just demo to show you how create custome component , so i recommend you use the llm_rag_crack_and_chunk_and_embed component which If embeddings_container is supplied, input chunks are compared to existing chunks in the Embeddings Container and only changed/new chunks are embedded, existing chunks being reused.
